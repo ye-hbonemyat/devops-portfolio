@@ -18,6 +18,14 @@ If deployment policy later requires GitHub-controlled releases, install Wrangler
 
 This workflow is intentionally not enabled until the Cloudflare account, Pages project name and credential strategy are approved.
 
+## Current Workers Git integration
+
+The repository also includes `wrangler.jsonc` for Cloudflare Workers Builds. It deploys the generated `dist` directory as static assets, serves the generated `404.html` for unmatched routes, and pins a runtime-supported compatibility date. The dashboard settings for this approach are:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
 ## Custom domain
 
 In the Pages project, open **Custom domains**, add the chosen hostname and follow Cloudflare's DNS prompts. If the domain already uses Cloudflare DNS, the Pages record can be created in the same zone. Verify TLS and redirect the unused `www` or apex variant to the canonical host.
