@@ -5,9 +5,9 @@ export const site = {
     'Senior Cloud Infrastructure and DevOps Consultant specializing in AWS, Kubernetes, Terraform, cloud migration, GitOps, reliability and cloud cost optimization.',
   email: 'yehbone.m@gmail.com',
   location: 'Bangkok, Thailand',
-  siteUrl: 'https://example.com', // TODO: replace after choosing a domain.
-  githubUrl: null, // TODO: add the exact GitHub profile URL.
-  linkedinUrl: null, // TODO: add the exact LinkedIn profile URL.
+  siteUrl: 'https://devops-portfolio.yehbone-m.workers.dev',
+  githubUrl: 'https://github.com/ye-hbonemyat',
+  linkedinUrl: 'https://www.linkedin.com/in/yehbonemyat/',
   resumeUrl: '/resume/ye-hbone-myat-resume.pdf',
 } as const;
 

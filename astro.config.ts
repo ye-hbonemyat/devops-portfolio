@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://example.com', // TODO: replace with the production domain.
+  site: 'https://devops-portfolio.yehbone-m.workers.dev',
   output: 'static',
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },

@@ -42,7 +42,7 @@ npm run preview      # serve the production build locally
 
 ## Content and configuration
 
-Update contact details, profile links, canonical site URL and resume URL in `src/config/site.ts`. Unknown GitHub and LinkedIn URLs are `null`, so the UI does not render fake links. Replace all `https://example.com` placeholders before deployment; see `docs/DEPLOYMENT.md`.
+Update contact details, profile links, canonical site URL and resume URL in `src/config/site.ts`. The current canonical URL is the production Workers hostname; replace it when a custom domain is connected. See `docs/DEPLOYMENT.md`.
 
 Case studies live in `src/data/caseStudies.ts`. Adding a typed entry automatically creates a detail route through `src/pages/work/[slug].astro`. See `docs/CONTENT.md` for the content safety rules and editing map.
 

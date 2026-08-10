@@ -8,7 +8,7 @@
 4. Use build command `npm run build` and output directory `dist`.
 5. Cloudflare detects Node 22 from `.nvmrc`. If the dashboard overrides it, set `NODE_VERSION` to `22` or remove the conflicting override.
 6. No application environment variables are required.
-7. Replace `https://example.com` in `astro.config.ts`, `src/config/site.ts`, and `public/robots.txt` before production deployment.
+7. The Workers production hostname is configured in `astro.config.ts`, `src/config/site.ts`, and `public/robots.txt`. Replace it in all three locations when a custom domain becomes canonical.
 
 Git integration is recommended for v1 because it provides preview deployments and avoids long-lived deployment credentials in GitHub.
 
