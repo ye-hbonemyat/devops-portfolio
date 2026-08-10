@@ -1,0 +1,58 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Workflow from '../../components/Workflow.astro';
+import CTA from '../../components/CTA.astro';
+import { caseStudies, type CaseStudy } from '../../data/caseStudies';
+export const getStaticPaths = (() =>
+  caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }))) satisfies GetStaticPaths;
+interface Props {
+  study: CaseStudy;
+}
+const { study } = Astro.props;
+---
+
+<BaseLayout
+  title={study.title}
+  description={`${study.summary} ${study.result}.`}
+  ><article>
+    <header class="section border-b border-line">
+      <div class="shell">
+        <a class="text-sm font-semibold text-accent-dark" href="/work/"
+          >← Selected work</a
+        ><p class="eyebrow mt-8">Case study</p><h1 class="page-title mt-4">
+          {study.title}
+        </h1><p class="lede mt-6">{study.summary}</p><p
+          class="mt-7 inline-flex rounded border border-accent/30 bg-[#e9f8f2] px-4 py-2 font-mono text-xs font-bold text-accent-dark"
+        >
+          {study.result}
+        </p>
+      </div>
+    </header><div class="shell section prose-copy">
+      <h2>Overview</h2><p>{study.overview}</p><h2>Challenge</h2><p>
+        {study.challenge}
+      </p><h2>Constraints</h2><ul>
+        {study.constraints.map((item) => <li>{item}</li>)}
+      </ul><h2>Approach</h2><ul>
+        {study.approach.map((item) => <li>{item}</li>)}
+      </ul><h2>Architecture / workflow</h2><Workflow
+        steps={study.workflow}
+        label={`${study.title} workflow`}
+      /><p>
+        This simplified workflow communicates the delivery method without
+        representing confidential system topology.
+      </p><h2>Engineering decisions</h2><ul>
+        {study.decisions.map((item) => <li>{item}</li>)}
+      </ul><h2>Outcome</h2><p class="!text-ink font-semibold">
+        {study.outcome}
+      </p><h2>Key technologies</h2><div
+        class="mt-4 flex max-w-3xl flex-wrap gap-2"
+      >
+        {study.technologies.map((item) => <span class="tag">{item}</span>)}
+      </div><h2>Lessons / considerations</h2><p>{study.lessons}</p>
+    </div>
+  </article><CTA /></BaseLayout
+>

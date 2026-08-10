@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+const subject = encodeURIComponent('Infrastructure consulting inquiry');
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact Ye Hbone Myat about cloud architecture, Kubernetes, Terraform, migration, reliability, FinOps or DevOps advisory."
+  ><section class="section">
+    <div class="shell grid gap-12 lg:grid-cols-[1fr_.8fr]">
+      <div>
+        <p class="eyebrow">Contact</p><h1 class="page-title mt-4">
+          Tell me what you’re trying to improve.
+        </h1><p class="lede mt-6">
+          A short, concrete description is enough to start. I’ll reply with
+          useful next questions and whether the problem looks like a good fit.
+        </p><a
+          class="button button-primary mt-8"
+          href={`mailto:${site.email}?subject=${subject}`}>Email Me</a
+        ><p class="mt-4 text-sm text-muted">{site.email}</p>
+      </div><aside class="card">
+        <h2 class="text-xl font-semibold">Helpful context to include</h2><ul
+          class="mt-5 space-y-4 text-muted"
+        >
+          <li>
+            <strong class="text-ink">Current infrastructure</strong><br />The
+            major cloud, platform and delivery components.
+          </li><li>
+            <strong class="text-ink">Problem</strong><br />What is slow, risky,
+            expensive or difficult today.
+          </li><li>
+            <strong class="text-ink">Cloud provider</strong><br />AWS, GCP,
+            DigitalOcean, multi-cloud or still deciding.
+          </li><li>
+            <strong class="text-ink">Timeline</strong><br />Any decision,
+            migration or delivery deadline.
+          </li><li>
+            <strong class="text-ink">Expected engagement</strong><br />Review,
+            implementation project or ongoing advisory.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section><section class="border-y border-line bg-white py-12">
+    <div class="shell">
+      <h2 class="text-lg font-semibold">Professional profiles</h2>{
+        site.linkedinUrl || site.githubUrl ? (
+          <div class="mt-4 flex gap-4">
+            {site.linkedinUrl && (
+              <a href={site.linkedinUrl} rel="me noopener noreferrer">
+                LinkedIn
+              </a>
+            )}
+            {site.githubUrl && (
+              <a href={site.githubUrl} rel="me noopener noreferrer">
+                GitHub
+              </a>
+            )}
+          </div>
+        ) : (
+          <p class="mt-3 text-muted">
+            LinkedIn and GitHub links will appear here after the exact profile
+            URLs are added to the central site configuration.
+          </p>
+        )
+      }
+    </div>
+  </section></BaseLayout
+>

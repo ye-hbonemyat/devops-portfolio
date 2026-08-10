@@ -1,0 +1,32 @@
+---
+interface Props {
+  title?: string;
+  copy?: string;
+}
+const {
+  title = 'Need help improving your infrastructure?',
+  copy = 'Cloud architecture, Kubernetes, Terraform, migrations, reliability and cost optimization.',
+} = Astro.props;
+---
+
+<section class="section">
+  <div
+    class="shell overflow-hidden rounded-lg bg-ink px-6 py-12 text-white md:px-12 md:py-16"
+  >
+    <p class="eyebrow !text-[#79d9b5]">Start a conversation</p>
+    <div class="mt-4 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+      <div>
+        <h2 class="section-title">{title}</h2><p
+          class="mt-4 max-w-2xl text-[#cbd4d1]"
+        >
+          {copy}
+        </p>
+      </div>
+      <a
+        class="button border-white bg-white text-ink hover:bg-[#dff7ee]"
+        href="/contact/"
+        >Discuss Your Infrastructure <span aria-hidden="true">→</span></a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+const projects = [
+  [
+    'Production-Ready AWS Platform with Terraform',
+    'A documented Terraform reference for VPC, EKS, RDS and IAM boundaries, CI and security decisions.',
+  ],
+  [
+    'Kubernetes Production Reference Architecture',
+    'Workload patterns for resources, probes, autoscaling, disruption, network policy and GitOps operation.',
+  ],
+  [
+    'GitOps with Argo CD',
+    'A reference repository for environment promotion, reconciliation, rollback and secure configuration.',
+  ],
+  [
+    'AWS FinOps Automation',
+    'A sanitized educational workflow for scheduled non-production resource optimization.',
+  ],
+  [
+    'CI/CD Security Reference',
+    'Practical pipeline controls for validation, dependency risk, identity and artifact integrity.',
+  ],
+];
+---
+
+<BaseLayout
+  title="Engineering Lab"
+  description="Planned public reference implementations for Terraform, Kubernetes, GitOps, AWS FinOps and CI/CD security."
+  ><header class="section border-b border-line">
+    <div class="shell">
+      <p class="eyebrow">Engineering Lab</p><h1 class="page-title mt-4">
+        Public reference implementations, built in the open.
+      </h1><p class="lede mt-6">
+        The lab will turn production experience into sanitized, educational
+        infrastructure examples. Every item below is a plan—not a claimed public
+        repository.
+      </p>
+    </div>
+  </header><section class="section">
+    <div class="shell grid gap-5 md:grid-cols-2">
+      {
+        projects.map(([title, copy]) => (
+          <article class="card">
+            <>
+              <span class="tag">Coming soon</span>
+              <h2 class="mt-5 text-2xl font-semibold tracking-[-.03em]">
+                {title}
+              </h2>
+              <p class="mt-3 text-muted">{copy}</p>
+            </>
+          </article>
+        ))
+      }
+    </div><p class="mt-8 text-sm text-muted">
+      Detailed build specifications are maintained in <code>docs/plans/</code> in
+      this portfolio repository.
+    </p>
+  </section><CTA
+    title="Have a reference implementation in mind?"
+    copy="If it overlaps with a real infrastructure problem, it may be a useful starting point for a conversation."
+  /></BaseLayout
+>

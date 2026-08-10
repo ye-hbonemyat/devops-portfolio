@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+const timeline = [
+  {
+    period: 'Sep 2024 — Present',
+    role: 'Senior Infrastructure Engineer',
+    org: 'Omise Thailand',
+    copy: 'Infrastructure initiatives across Southeast Asia and Japan-facing projects, spanning AWS, EKS, infrastructure as code, security, observability, cost automation and disaster recovery.',
+  },
+  {
+    period: 'May 2022 — Aug 2024',
+    role: 'Senior DevOps Engineer',
+    org: 'PropertyScout',
+    copy: 'Multi-cloud Kubernetes, Terraform, CI/CD and GitOps across AWS, GCP and DigitalOcean, including a zero-downtime migration that reduced infrastructure cost by approximately 30%.',
+  },
+  {
+    period: 'Earlier experience',
+    role: 'Systems, Automation & Security',
+    org: 'Multiple roles',
+    copy: 'System Administrator, Test Automation Engineer, Cyber Security Engineer and Cyber Security Intern—building the operational and security foundation for later cloud platform work.',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="About Ye Hbone Myat, a Senior Cloud Infrastructure and DevOps Consultant in Bangkok with experience across security, systems, automation, cloud and Kubernetes."
+  ><header class="section border-b border-line">
+    <div class="shell grid gap-10 lg:grid-cols-[1fr_.6fr]">
+      <div>
+        <p class="eyebrow">About</p><h1 class="page-title mt-4">
+          Security roots. Operational discipline. Cloud platform focus.
+        </h1><p class="lede mt-6">
+          Six-plus years across cybersecurity, systems, automation, DevOps and
+          senior infrastructure engineering.
+        </p>
+      </div><aside class="card self-end">
+        <p class="text-sm text-muted">Based in</p><p class="mt-1 font-semibold">
+          Bangkok, Thailand
+        </p><p class="mt-5 text-sm text-muted">Working across</p><p
+          class="mt-1 font-semibold"
+        >
+          Southeast Asia · Japan-facing projects · Remote consulting
+        </p>
+      </aside>
+    </div>
+  </header><section class="section">
+    <div class="shell grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
+      <div>
+        <p class="eyebrow">Progression</p><h2 class="section-title mt-4">
+          A broad view of production engineering.
+        </h2>
+      </div><div class="space-y-5 text-muted">
+        <p>
+          The progression from cybersecurity into systems, test automation,
+          DevOps and cloud infrastructure shapes how Ye approaches platform
+          work: security, operations, automation and architecture are connected
+          concerns.
+        </p><p>
+          Current work includes enterprise and mission-critical infrastructure
+          initiatives, AWS and Kubernetes platforms, infrastructure automation,
+          observability, disaster recovery and cross-regional stakeholder
+          communication.
+        </p><p>
+          The consulting approach is practical and business-aware: understand
+          the constraint, make risk visible, automate what should be repeatable
+          and leave teams with infrastructure they can operate.
+        </p>
+      </div>
+    </div>
+  </section><section class="section border-y border-line bg-white">
+    <div class="shell">
+      <p class="eyebrow">Experience</p><h2 class="section-title mt-4">
+        Selected timeline
+      </h2><ol class="mt-12 border-l border-line">
+        {
+          timeline.map((item) => (
+            <li class="relative ml-6 border-b border-line py-8 first:pt-0 last:border-0">
+              <>
+                <span class="absolute -left-[1.72rem] top-9 size-3 rounded-full border-2 border-accent bg-white first:top-1" />
+                <p class="font-mono text-xs font-bold text-accent-dark">
+                  {item.period}
+                </p>
+                <h3 class="mt-3 text-xl font-semibold">
+                  {item.role}{' '}
+                  <span class="font-normal text-muted">— {item.org}</span>
+                </h3>
+                <p class="mt-3 max-w-3xl text-muted">{item.copy}</p>
+              </>
+            </li>
+          ))
+        }
+      </ol><div class="card mt-10">
+        <p class="eyebrow">Education</p><h3 class="mt-3 text-lg font-semibold">
+          Bachelor’s Degree in Communication and Network Security
+        </h3><p class="mt-1 text-muted">
+          University of Information Technology · Yangon, Myanmar
+        </p>
+      </div>
+    </div>
+  </section><CTA /></BaseLayout
+>

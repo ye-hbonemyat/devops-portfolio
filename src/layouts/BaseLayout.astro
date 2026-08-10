@@ -1,0 +1,76 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const {
+  title = site.title,
+  description = site.description,
+  image = '/og-image.svg',
+} = Astro.props;
+const fullTitle =
+  title === site.title
+    ? `${site.name} | ${site.title}`
+    : `${title} | ${site.name}`;
+const canonical = new URL(Astro.url.pathname, site.siteUrl);
+const imageUrl = new URL(image, site.siteUrl);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': ['Person', 'ProfessionalService'],
+  name: site.name,
+  jobTitle: site.title,
+  description,
+  url: site.siteUrl,
+  email: `mailto:${site.email}`,
+  areaServed: 'Remote',
+  knowsAbout: [
+    'AWS',
+    'Kubernetes',
+    'Terraform',
+    'GitOps',
+    'Cloud migration',
+    'FinOps',
+    'Platform engineering',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101615" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{fullTitle}</title>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(structuredData)}
+    />
+  </head>
+  <body
+    ><a
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-3"
+      href="#main-content">Skip to content</a
+    ><Header /><main id="main-content"><slot /></main><Footer /></body
+  >
+</html>

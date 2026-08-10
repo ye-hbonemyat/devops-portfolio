@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Metric from '../components/Metric.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import Workflow from '../components/Workflow.astro';
+import CTA from '../components/CTA.astro';
+import { caseStudies } from '../data/caseStudies';
+import { site } from '../config/site';
+
+const services = [
+  [
+    'Cloud Infrastructure',
+    'Design reliable AWS and cloud foundations for production systems.',
+  ],
+  [
+    'Kubernetes & Platforms',
+    'Improve Kubernetes platforms, GitOps workflows and developer infrastructure.',
+  ],
+  [
+    'Infrastructure as Code',
+    'Create maintainable Terraform and Terragrunt architecture with repeatable environments.',
+  ],
+  [
+    'Cloud Migration',
+    'Plan migrations around continuity, risk, observability, rollback and cost.',
+  ],
+  [
+    'Cost Optimization',
+    'Find waste, automate resource schedules and improve infrastructure efficiency.',
+  ],
+  [
+    'Reliability & Security',
+    'Strengthen observability, secrets, access, disaster recovery and production readiness.',
+  ],
+];
+const technologies = {
+  Cloud: ['AWS', 'GCP', 'DigitalOcean'],
+  Containers: ['Kubernetes', 'EKS', 'GKE', 'Docker', 'Helm'],
+  'Infrastructure as Code': ['Terraform', 'Terragrunt'],
+  'GitOps / CI/CD': ['Argo CD', 'FluxCD', 'GitHub Actions'],
+  Security: ['Cloudflare', 'Vault', 'SOPS', 'GuardDuty', 'Sysdig', 'Teleport'],
+  Observability: [
+    'Datadog',
+    'CloudWatch',
+    'CloudTrail',
+    'Elasticsearch',
+    'Fluentd',
+  ],
+  Data: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
+};
+---
+
+<BaseLayout>
+  <section class="section border-b border-line">
+    <div class="shell">
+      <p class="eyebrow">{site.name} · Bangkok / Remote</p>
+      <h1 class="display mt-5">
+        Reliable cloud infrastructure without unnecessary complexity.
+      </h1>
+      <p class="lede mt-7">
+        I help engineering teams build reliable cloud platforms, migrate
+        infrastructure, reduce cloud costs and automate delivery.
+      </p>
+      <p class="mt-6 font-mono text-sm text-muted">
+        AWS · Kubernetes · Terraform · GitOps · Cloud Migration · FinOps
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="button button-primary" href="/contact/">Work With Me</a><a
+          class="button button-secondary"
+          href="/work/">View Case Studies</a
+        >
+      </div>
+      <div class="mt-7 flex flex-wrap gap-5 text-sm font-semibold">
+        {
+          site.githubUrl && (
+            <a href={site.githubUrl} rel="me noopener noreferrer">
+              GitHub
+            </a>
+          )
+        }
+        {
+          site.linkedinUrl && (
+            <a href={site.linkedinUrl} rel="me noopener noreferrer">
+              LinkedIn
+            </a>
+          )
+        }
+        <a href={site.resumeUrl} download>Download Resume</a>
+      </div>
+      <Workflow
+        steps={['Terraform', 'Cloud', 'Kubernetes', 'Observability']}
+        label="Infrastructure delivery"
+      />
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16" aria-labelledby="results-heading">
+    <div class="shell">
+      <h2 id="results-heading" class="sr-only">Business results</h2><div
+        class="grid gap-9 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        <Metric
+          value="15%"
+          label="Approximate cost reduction through AWS automation"
+        /><Metric
+          value="30%"
+          label="Approximate cost reduction following cloud migration"
+        /><Metric
+          value="Zero downtime"
+          label="During a major cloud migration"
+        /><Metric
+          value="6+ years"
+          label="Infrastructure, cloud and security experience"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section border-y border-line bg-white">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Services"
+        title="Infrastructure help tied to operational outcomes."
+        intro="Focused engagements for teams that need senior infrastructure judgment without adding unnecessary process."
+      /><div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {
+          services.map(([title, copy], index) => (
+            <article class="card">
+              <>
+                <p class="font-mono text-xs text-accent-dark">0{index + 1}</p>
+                <h3 class="mt-5 text-xl font-semibold tracking-[-.025em]">
+                  {title}
+                </h3>
+                <p class="mt-3 text-sm text-muted">{copy}</p>
+              </>
+            </article>
+          ))
+        }
+      </div><a class="button button-secondary mt-8" href="/services/"
+        >Explore services</a
+      >
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Selected work"
+        title="Measured results, explained through engineering decisions."
+      /><div class="grid gap-5 lg:grid-cols-3">
+        {
+          caseStudies
+            .slice(0, 3)
+            .map((study) => <CaseStudyCard study={study} />)
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section border-y border-line bg-white">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Technical expertise"
+        title="A practical stack for operating production systems."
+      /><div class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          Object.entries(technologies).map(([group, items]) => (
+            <div>
+              <>
+                <h3 class="font-semibold">{group}</h3>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <span class="tag">{item}</span>
+                  ))}
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CTA from '../../components/CTA.astro';
+import { caseStudies } from '../../data/caseStudies';
+---
+
+<BaseLayout
+  title="Selected Infrastructure Work"
+  description="Sanitized case studies covering cloud migration, AWS cost automation, Kubernetes and GitOps, and disaster recovery readiness."
+  ><header class="section border-b border-line">
+    <div class="shell">
+      <p class="eyebrow">Selected work</p><h1 class="page-title mt-4">
+        Infrastructure outcomes without exposing private systems.
+      </h1><p class="lede mt-6">
+        These case studies use verified results and high-level engineering
+        methods. Employer topology, scale and confidential operating details are
+        intentionally omitted.
+      </p>
+    </div>
+  </header><section class="section">
+    <div class="shell grid gap-5 md:grid-cols-2">
+      {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+    </div>
+  </section><CTA /></BaseLayout
+>

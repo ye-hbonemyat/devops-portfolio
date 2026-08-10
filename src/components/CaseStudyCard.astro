@@ -1,0 +1,23 @@
+---
+import type { CaseStudy } from '../data/caseStudies';
+interface Props {
+  study: CaseStudy;
+}
+const { study } = Astro.props;
+---
+
+<article class="card flex h-full flex-col">
+  <p class="eyebrow">Selected work</p>
+  <h3 class="mt-4 text-2xl font-semibold tracking-[-.035em]">{study.title}</h3>
+  <p class="mt-3 text-muted">{study.summary}</p>
+  <p
+    class="mt-5 border-t border-line pt-4 font-mono text-xs font-bold text-accent-dark"
+  >
+    {study.result}
+  </p>
+  <a
+    class="mt-7 font-semibold text-accent-dark"
+    href={`/work/${study.slug}/`}
+    aria-label={`Read ${study.title}`}>Read case study →</a
+  >
+</article>
