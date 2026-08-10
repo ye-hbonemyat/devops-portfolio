@@ -6,7 +6,7 @@
 2. In Cloudflare, create a Pages project and connect the repository.
 3. Set the production branch to `main`.
 4. Use build command `npm run build` and output directory `dist`.
-5. Set `NODE_VERSION` to `22` if Cloudflare does not detect `.nvmrc`.
+5. Cloudflare detects Node 22 from `.nvmrc`. If the dashboard overrides it, set `NODE_VERSION` to `22` or remove the conflicting override.
 6. No application environment variables are required.
 7. Replace `https://example.com` in `astro.config.ts`, `src/config/site.ts`, and `public/robots.txt` before production deployment.
 

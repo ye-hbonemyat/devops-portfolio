@@ -12,10 +12,10 @@ A static, consulting-focused portfolio for a Senior Cloud Infrastructure & DevOp
 
 ## Requirements
 
-- Node.js 22.12 or newer (Node 22 is pinned in `.nvmrc` and `.tool-versions`)
+- Node.js 22.12 or newer (Node 22 is declared in `.nvmrc` for local, CI and hosting builds)
 - npm 10 or newer
 
-With `mise` installed, prefix commands with `mise exec node@22.23.2 --` if the active shell still uses an older Node release.
+With `mise` installed, run `mise exec node@22 -- npm install` and prefix later commands with `mise exec node@22 --` if the active shell still uses an older Node release.
 
 ## Local development
 
