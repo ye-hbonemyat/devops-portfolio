@@ -18,7 +18,7 @@
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run check:links"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.0",
     "tailwindcss": "^4.3.3"
